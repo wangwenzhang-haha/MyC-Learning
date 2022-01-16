@@ -75,8 +75,27 @@
     inflatable gifts[100] ; // array of 100 inflatable structures 
 
 ## 公用体(union)
-## 枚举
-
+### 可以使用几种格式中的一种来存储
+## 枚举（enum）
+### 格式
+    enum spectrum {red , orange , yellow ,green , blue , violet ,indigo ,ultraviolet} ;
+    spectrum 成为新类型的名称，red，orange成为符号常量，对应整数0～7，这些常量叫做枚举量。
+    赋值：spectrum band ; 
+        band = blue ; //valid ,blue is an enumerator
+        band = 2000 ; // invalid ,2000 not an enumerator
+# 指针和自由存储空间
+## 计算机在存储数据时必须跟踪的三种属性。
+    1. 信息存储在何处
+    2. 存储的值是什么
+    3. 存储的信息是什么类型
+## 声明和初始化指针
+    int* ptr ; // ptr地址，* 解引用，间接值
+## 使用new来分配内存
+    new比malloc（）更好
+    int* pn = new int ;
+    new int 告诉程序，需要适合存储int 的内存，new运算符根据类型来确定需要多少字节的内存，然后，找到这样的内存，并返回其地址。
+### 标准格式
+    typeName * pointer_name = new typeName ;
 
         
 
