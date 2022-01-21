@@ -96,8 +96,36 @@
     new int 告诉程序，需要适合存储int 的内存，new运算符根据类型来确定需要多少字节的内存，然后，找到这样的内存，并返回其地址。
 ### 标准格式
     typeName * pointer_name = new typeName ;
+### c++提供了检测并处理内存分配失败的工具
 
-        
-
-
-    
+### 使用new创建动态数组
+    int* psome = new int [10] ;
+    应该使用delete来释放：
+    delete [] psome ;   
+### 使用delete的规则
+    1.  不要使用delete来释放不是new分配的内存
+    2. 不要使用delete释放同一个内存块两次
+    3. 如果使用new[]为数组分配内存，则应该使用delete[]来释放
+    4. 如果使用new[]为一个实体分配内存，则应该使用delete来释放
+    5. 对空指针应用delete是安全的
+### 如何访问动态数组
+    * psome 指向数组的第一个元素
+    psome[index] ;  // 数组和指针等价
+## 数组的替代品### 模版类vector
+    类似于string类，也是一种动态数组。
+### vector格式
+    vector <typenname> vt(n_elem) ; //  其中n_elem可以是整型常量，也可以是整型变量。
+    vector类的功能比数组强大，但是付出的代价是效率稍低。
+### 模版类array
+    array模版类，长度也是固定的，也适用栈（静态内存分配），而不是自由存储区，因此其效率与数组相同，但是更方便，更安全。
+### array格式
+    array <typename , n_elem> arr;
+    与创建vector对象不同的是，n_elem不能是变量。
+### C+11和C++98
+    C++11中，可将列表初始化用于vector和array对象，但在C++98中，不能对vector对象这么做。
+### 比较数组，vector对象和array对象
+    首先都可以使用标准数组表示法来访问各个元素，其次，从地址可知，array对象和数组存储在相同的内存区域（即栈）中，而vector对象存储在另一个区域（自由存储区或堆）中，第三，注意到可以讲一个array对象赋给另一个array对象；而对
+    于数组，必须逐元素复制数据。
+### 安全的访问方法
+    a2.at(1) = 2.3 // assign 2.3 to a2[1] 
+    vector 和 array对象的成员函数，在运行期间捕获非法索引
