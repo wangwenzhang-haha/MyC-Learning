@@ -129,3 +129,21 @@
 ### 安全的访问方法
     a2.at(1) = 2.3 // assign 2.3 to a2[1] 
     vector 和 array对象的成员函数，在运行期间捕获非法索引
+# 循环和关系表达式
+## for循环
+### 基于范围等for循环
+    基于（range-based）的for循环，如下例：
+    double prices[5] = {4.99 ,10.99 , 6.89 ,7.99 8.49} ;
+    for (double x : prices)
+        cout  << x << std::endl ;
+## 循环和文本输入
+## 类别别名
+    1. # define BYTE char // preorocessor replaces BYTE with char 这样，预处理器讲在编译程序用char替换所有的BYTE，从而使BYTE成为char 的别名
+    2. 使用C++和C 的关键字typedef来创建别名，例如：typedef char byte ； // mackes byte an alias for char
+    3. 通用格式： typedef typeName aliasName ;
+    4. typedef不会创建新类型，而只是为已有的类型建立一个新名称，
+    5. 例如：typedef char * byte_pointer ; // pointer to chartype
+## do while 循环
+    do
+        body
+    while(test-expression) ;
